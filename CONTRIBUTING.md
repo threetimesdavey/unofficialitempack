@@ -1,4 +1,4 @@
-# Contributing to BGII:EE Unofficial Item Pack
+# Contributing to BG2:EE Unofficial Item Pack
 
 [README](README.md) ·
 [Changelog](CHANGELOG.md) ·
@@ -6,7 +6,7 @@
 [Contributors](CONTRIBUTORS.md) ·
 [Maintenance notice](MAINTENANCE-NOTICE.md)
 
-Thank you for helping preserve and improve **BGII:EE Unofficial Item Pack**.
+Thank you for helping preserve and improve **BG2:EE Unofficial Item Pack**.
 
 Contributions may include code, WeiDU improvements, compatibility fixes,
 translations, testing, documentation, item descriptions, installation
@@ -66,8 +66,8 @@ Useful contributions include:
 - safer WeiDU patching;
 - compatibility improvements;
 - installation-order testing;
-- BGII:EE and EET testing;
-- English, Czech, Italian, and additional translations;
+- BG2:EE and EET testing;
+- additional translations;
 - documentation corrections;
 - historical release information;
 - accessibility improvements;
@@ -116,7 +116,7 @@ reproduce the problem.
 
 Please include:
 
-- **Game:** BGII:EE, EET, or another supported installation;
+- **Game:** BG2:EE, EET, or another supported installation;
 - **Game version:** the complete version number;
 - **Operating system:** Windows, Linux, or macOS;
 - **Mod version:** release number, Git tag, or commit;
@@ -136,7 +136,7 @@ that are not required and authorized for redistribution.
 
 ### Example bug-report title
 
-`[BGII:EE] Circlet of the Cynosure cannot be equipped by the intended character`
+`[BG2:EE] Circlet of the Cynosure cannot be equipped by the intended character`
 
 ### Good reproduction sequence
 
@@ -180,7 +180,7 @@ choose one mod.
 ## Proposing balance changes or new content
 
 The original project focused on giving overlooked, underused, and quest-related
-items a meaningful place in BGII:EE. New proposals should remain recognizably
+items a meaningful place in BG2:EE. New proposals should remain recognizably
 connected to that purpose.
 
 A proposal should explain:
@@ -192,7 +192,7 @@ A proposal should explain:
 - acquisition method and game chapter;
 - price and availability;
 - lore justification;
-- interaction with existing BGII:EE items;
+- interaction with existing BG2:EE items;
 - interaction with Item Revisions or other major item mods;
 - whether the change affects Shadows of Amn, Throne of Bhaal, or both;
 - whether a new game is required;
@@ -351,7 +351,7 @@ For translation changes:
 
 For source changes:
 
-- install on a clean supported BGII:EE installation;
+- install on a clean supported BG2:EE installation;
 - test installation, uninstallation, and reinstallation;
 - begin a new game when the component changes stores, creatures, areas, or item
   placement;
@@ -455,7 +455,7 @@ Repository documentation should:
 - use repository-relative links for repository files and images;
 - use one sentence per line only when it improves diffs without harming
   readability;
-- use `BGII:EE` consistently;
+- use `BG2:EE` consistently;
 - use `EET` consistently;
 - spell `WeiDU` with its established capitalization;
 - preserve official item names;

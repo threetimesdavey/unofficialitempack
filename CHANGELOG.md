@@ -6,7 +6,7 @@
 [Contributors](CONTRIBUTORS.md) ·
 [Maintenance notice](MAINTENANCE-NOTICE.md)
 
-All notable changes to **BGII:EE Unofficial Item Pack** are documented in this
+All notable changes to **BG2:EE Unofficial Item Pack** are documented in this
 file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
@@ -41,7 +41,7 @@ chosen by the original author, including `2.7b`.
   contributions.
 - Added `MAINTENANCE-NOTICE.md` to document the purpose and limits of the
   community-maintained continuation.
-- Added this reconstructed historical changelog.
+- Added this reconstructed historical changelog by the name of `CHANGELOG.md`.
 
 ### Changed
 
@@ -126,7 +126,6 @@ The Reworked Free Action component affected:
 ### Removed
 
 - Temporarily removed **Key Ring** after it was found to cause a game freeze.
-  The item returned in version `2.6`.
 
 ## [2.0] - 2016-06
 
@@ -145,70 +144,13 @@ The Reworked Free Action component affected:
 
 ### Added
 
-- Released the first public version of **BGII:EE Unofficial Item Pack**.
+- Released the first public version of **BG2:EE Unofficial Item Pack**.
 - Added a modular WeiDU installation for *Baldur’s Gate II: Enhanced Edition*.
-- Added reworks for underused, overlooked, and quest-related BGII:EE items.
+- Added reworks for underused, overlooked, and quest-related BG2:EE items.
 - Added the **Scarlet Katana** component.
 - Added the **Gourmet from Underdark** component.
 - Added the **Holy Symbols** component.
 - Added English and Czech text.
-
-## Non-release historical events
-
-### 2021-07 — Archive availability restored
-
-- The original author returned to the Beamdog discussion to provide or repair
-  a working download mirror.
-- The available package remained version `2.7b`.
-- No separate code release or new version number was announced.
-
-### 2024-09 — Italian translation published
-
-- DaveTheBrave published an Italian translation in the Beamdog discussion.
-- The translation was offered to the original author and community for
-  inclusion in a future release.
-
-### 2024-09 — GitHub hosting requested
-
-- Community members requested a GitHub repository so that translations,
-  corrections, and other contributions could be proposed through a shared
-  development workflow.
-- DaveTheBrave stated an intention to contribute the Italian translation
-  through a pull request if such a repository became available.
-
-### 2025-10 — Additional technical problems reported
-
-Community testing identified or reiterated issues in the historical `2.7b`
-package, including:
-
-- missing EFF and SPL resources required by selected
-  *Siege of Dragonspear* items;
-- an apparently unintended `CAELAR` usability restriction associated with
-  **Circlet of the Cynosure**;
-- compatibility risks caused by replacing complete game resources rather than
-  patching them through WeiDU.
-
-These reports are historical issue records and do not imply that the problems
-have already been fixed in an official community release.
-
-## Unresolved historical gaps
-
-- No independently verified release notes have yet been located for versions
-  `2.1`, `2.2`, `2.3`, or `2.4`.
-- It is not yet clear whether those labels represented public releases,
-  internal builds, or incremental forum uploads.
-- The exact contents of the small `2.7b` update may be broader than the summary
-  preserved above.
-- Version `3.0` was discussed but has not been found as a public release.
-
-Please submit documentary corrections through a GitHub issue or pull request.
-Useful evidence includes:
-
-- an original ZIP archive;
-- an original readme or changelog;
-- a dated release announcement;
-- a WeiDU setup file containing a version declaration;
-- a saved copy of an unavailable forum attachment.
 
 ## Historical sources
 

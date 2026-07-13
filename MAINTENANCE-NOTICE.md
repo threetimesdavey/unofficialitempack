@@ -6,7 +6,7 @@
 [Contributors](CONTRIBUTORS.md) ·
 [Maintenance notice](MAINTENANCE-NOTICE.md)
 
-- **Project:** BGII:EE Unofficial Item Pack
+- **Project:** BG2:EE Unofficial Item Pack
 - **Original author:** Edvin
 - **Community steward:** DaveTheBrave / [@threetimesdavey](https://github.com/threetimesdavey)
 - **Historical baseline:** Version 2.7b
@@ -22,7 +22,7 @@
 ## Purpose of this notice
 
 I, DaveTheBrave, created this repository because I believe in
-**BGII:EE Unofficial Item Pack**, value what it adds to BGII:EE, and do not want
+**BG2:EE Unofficial Item Pack**, value what it adds to BG2:EE, and do not want
 the project to disappear or remain inaccessible while players still use it and
 wish to contribute.
 
@@ -37,7 +37,7 @@ replaced Edvin as its historical author.
 
 ## Original authorship
 
-BGII:EE Unofficial Item Pack was created by **Edvin**.
+BG2:EE Unofficial Item Pack was created by **Edvin**.
 
 Edvin remains the original author and must continue to receive clear and
 prominent credit in:
@@ -60,7 +60,7 @@ represent the full authorship history of the project.
 ## Why community maintenance was started
 
 The original project attracted continued interest because it gives overlooked,
-underused, and quest-related BGII:EE items new gameplay value.
+underused, and quest-related BG2:EE items new gameplay value.
 
 The original Beamdog discussion remained active after the latest surviving
 release.
@@ -89,7 +89,7 @@ The community-maintained continuation aims to:
 - correct reproducible bugs;
 - restore missing required resources where redistribution is permitted;
 - replace compatibility-hostile overwrites with targeted WeiDU patches;
-- improve compatibility with BGII:EE, EET, and other actively maintained mods;
+- improve compatibility with BG2:EE, EET, and other actively maintained mods;
 - preserve stable component numbers where possible;
 - provide a public issue tracker;
 - review changes through pull requests;
