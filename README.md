@@ -1,6 +1,6 @@
 # BG2:EE Unofficial Item Pack
 
-**A community-maintained continuation of the mod originally created by Edvin.**
+**A community-maintained continuation of the mod originally created by [Edvin](https://forums.beamdog.com/profile/Edvin).**
 
 ## Repository documents
 
@@ -11,7 +11,7 @@
 [Maintenance notice](MAINTENANCE-NOTICE.md)
 
 > [!IMPORTANT]
-> Edvin is the original author of BG2:EE Unofficial Item Pack.
+> [Edvin](https://forums.beamdog.com/profile/Edvin) is the original author of BG2:EE Unofficial Item Pack.
 >
 > This repository preserves and maintains the project through a community-led
 > continuation coordinated by [DaveTheBrave](https://forums.beamdog.com/profile).
@@ -61,21 +61,21 @@ documentation.
 
 | Field | Information |
 |---|---|
-| **Original author** | Edvin |
+| **Original author** | [Edvin](https://forums.beamdog.com/profile/Edvin) |
 | **Community maintainer** | [DaveTheBrave](https://forums.beamdog.com/profile) / [@threetimesdavey](https://github.com/threetimesdavey) |
 | **Historical baseline** | Version 2.7b |
-| **Primary game** | Baldur’s Gate II: Enhanced Edition |
+| **Primary game** | Baldur’s Gate 2: Enhanced Edition |
 | **Minimum game patch stated by the original release** | Patch 2.0 or newer |
 | **Installer** | WeiDU |
 | **Original languages** | English and Czech |
-| **Community translation** | Italian, created by [DaveTheBrave](https://forums.beamdog.com/profile) |
+| **Community translations** | Italian |
 | **Installation model** | Eight optional components |
 | **New game** | Required or strongly recommended for most components |
 | **Original discussion** | [Beamdog forum](https://forums.beamdog.com/discussion/56567/mod-bgii-ee-unofficial-item-pack/p1) |
 
 ## Requirements
 
-- *Baldur’s Gate II: Enhanced Edition*;
+- *Baldur’s Gate 2: Enhanced Edition*;
 - game patch 2.0 or newer;
 - a WeiDU-compatible installation;
 - permission to write files into the game directory;
@@ -115,9 +115,6 @@ Before installing:
 - check the issue tracker for current compatibility reports;
 - avoid installing duplicate SoD import components on EET;
 - use a new game for meaningful placement changes.
-
-There is no single installation order that can guarantee compatibility with
-every Infinity Engine mod.
 
 ## Components and item catalogue
 
@@ -169,9 +166,9 @@ item title.
 </details>
 
 <details>
-  <summary><strong>Mask of King Strohm III</strong> — I do not see practically nothing.</summary>
+  <summary><strong>Mask of King Strohm 2I</strong> — I do not see practically nothing.</summary>
 
-  <img src="docs/images/items/mask-of-king-strohm-iii.jpg" alt="Mask of King Strohm III in-game item description">
+  <img src="docs/images/items/mask-of-king-strohm-iii.jpg" alt="Mask of King Strohm 2I in-game item description">
 
 </details>
 
@@ -703,7 +700,7 @@ Substantial changes should begin with an issue.
 
 ### Original creator
 
-**Edvin**
+**[Edvin](https://forums.beamdog.com/profile/Edvin)**
 
 Original concept, design, implementation, item work, component structure,
 English and Czech text, and historical releases through version `2.7b`.
@@ -721,7 +718,7 @@ See [CONTRIBUTORS.md](CONTRIBUTORS.md).
 
 ## History and original discussion
 
-The project was first published by Edvin on the Beamdog forums in May 2016.
+The project was first published by [Edvin](https://forums.beamdog.com/profile/Edvin) on the Beamdog forums in May 2016.
 
 The original discussion contains:
 
@@ -743,7 +740,7 @@ Useful links:
 
 ## Rights and disclaimer
 
-BG2:EE Unofficial Item Pack was originally created by Edvin.
+BG2:EE Unofficial Item Pack was originally created by [Edvin](https://forums.beamdog.com/profile/Edvin).
 
 This repository does not claim that inactivity transferred copyright or
 authorship to the community maintainer.
@@ -754,7 +751,7 @@ for the current rights and permission statement.
 This is an unofficial fan-made modification. It is not affiliated with or
 endorsed by Beamdog, BioWare, Wizards of the Coast, or their respective owners.
 
-*Baldur’s Gate*, *Baldur’s Gate II*, *Siege of Dragonspear*,
+*Baldur’s Gate*, *Baldur’s Gate 2*, *Siege of Dragonspear*,
 *Throne of Bhaal*, the Forgotten Realms, and related names and assets belong to
 their respective rights holders.
 
