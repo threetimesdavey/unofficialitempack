@@ -183,8 +183,6 @@ SAY DESC @106
 SAY NAME1 @104
 SAY NAME2 @105
 
-COPY ~unofficialitempack/new_items/MAGE18Z.CRE~ ~override/MAGE18Z.CRE~
-
 COPY_EXISTING ~MAGE18Z.CRE~ ~override~
 ADD_CRE_ITEM ~HODIN~ #0 #0 #0 ~IDENTIFIED~ ~INV~
 
