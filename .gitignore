@@ -1,2 +1,6 @@
 # macOS Finder metadata
 .DS_Store
+
+# Machine-specific local configuration
+.env
+.env.local
