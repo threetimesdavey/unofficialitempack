@@ -3,6 +3,7 @@
 [README](README.md) ·
 [Changelog](CHANGELOG.md) ·
 [Contributing](CONTRIBUTING.md) ·
+[AI setup](AI-CONFIGURATION.md) ·
 [Contributors](CONTRIBUTORS.md) ·
 [Maintenance notice](MAINTENANCE-NOTICE.md)
 
@@ -42,6 +43,8 @@ chosen by the original author, including `2.7b`.
 - Added `MAINTENANCE-NOTICE.md` to document the purpose and limits of the
   community-maintained continuation.
 - Added this reconstructed historical changelog by the name of `CHANGELOG.md`.
+- Added repository guidance and cross-platform environment-variable setup for
+  AI-assisted development with local BG:EE and BG2:EE installations.
 
 ### Changed
 

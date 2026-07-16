@@ -3,6 +3,7 @@
 [README](README.md) ·
 [Changelog](CHANGELOG.md) ·
 [Contributing](CONTRIBUTING.md) ·
+[AI setup](AI-CONFIGURATION.md) ·
 [Contributors](CONTRIBUTORS.md) ·
 [Maintenance notice](MAINTENANCE-NOTICE.md)
 
