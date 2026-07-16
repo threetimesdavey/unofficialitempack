@@ -794,7 +794,7 @@ Při nasazení:
 – Šance na selhání kouzla: 30%
 – Obranné číslo: +1
 
-Váha: 0~
+Váha: 1~
 
 @113    = ~Predelana volna akce~
 
@@ -810,3 +810,19 @@ Při použití:
 – Imunita na magické formy uvěznění
 
 Váha: 6~
+
+// TODO(#9): Replace these English placeholders with reviewed Czech text.
+@117    = ~Hourglass~
+@118    = ~This small hourglass is made from exquisitely worked metal and filled with fine, pale sand. Its craftsmanship suggests that it may be more than an ordinary timepiece.~
+
+@119    = ~Figurine~
+@120    = ~This finely carved animal figurine depicts a large black panther. Its polished stone surface is cool to the touch.~
+
+@121    = ~Ring~
+@122    = ~This metal ring is plain except for a faintly shimmering band around its edge. Its purpose is not apparent.~
+
+@123    = ~Robe~
+@124    = ~This heavy mage robe is woven from dark, age-worn fabric. Traces of powerful magic cling to its folds.~
+
+@125    = ~Long Sword~
+@126    = ~The blade of this well-crafted long sword bears faint discoloration along its edge. Its unusual balance suggests that it is no ordinary weapon.~

@@ -1,0 +1,91 @@
+// Adds an item without displacing another mod's inventory entry.
+//
+// If the creature already carries the item, only its identified flag is
+// changed. If the item is absent, it is added only when a general inventory
+// slot is empty. This keeps the operation idempotent and avoids ADD_CRE_ITEM's
+// item-loss behavior when a creature's inventory is full.
+DEFINE_PATCH_FUNCTION uoip_place_cre_item
+  INT_VAR
+    identified = 0
+  STR_VAR
+    item = ""
+BEGIN
+  PATCH_IF SOURCE_SIZE > 0x2d4 BEGIN
+    READ_ASCII 0x0 uoip_cre_signature (8)
+
+    PATCH_IF ("%uoip_cre_signature%" STRING_EQUAL_CASE "CRE V1.0") BEGIN
+      SPRINT uoip_expected_item "%item%"
+      TO_LOWER uoip_expected_item
+
+      READ_LONG 0x2b8 uoip_item_slots_offset
+      SET uoip_matching_items = 0
+      SET uoip_first_matching_item_offset = "-1"
+
+      CLEAR_ARRAY uoip_cre_items
+      GET_OFFSET_ARRAY uoip_cre_items CRE_V10_ITEMS
+
+      PHP_EACH uoip_cre_items AS uoip_item_index => uoip_item_offset BEGIN
+        READ_ASCII uoip_item_offset uoip_existing_item (8) NULL
+        TO_LOWER uoip_existing_item
+
+        SET uoip_item_is_assigned = 0
+        FOR (uoip_slot_offset = uoip_item_slots_offset;
+             uoip_slot_offset < uoip_item_slots_offset + 0x4c;
+             uoip_slot_offset += 2) BEGIN
+          READ_SSHORT uoip_slot_offset uoip_slot_item_index
+          PATCH_IF uoip_slot_item_index = uoip_item_index BEGIN
+            SET uoip_item_is_assigned = 1
+          END
+        END
+
+        PATCH_IF uoip_item_is_assigned AND
+                 ("%uoip_existing_item%" STRING_EQUAL_CASE
+                  "%uoip_expected_item%") BEGIN
+          SET uoip_matching_items += 1
+          PATCH_IF uoip_first_matching_item_offset < 0 BEGIN
+            SET uoip_first_matching_item_offset = uoip_item_offset
+          END
+        END
+      END
+
+      PATCH_IF uoip_matching_items > 0 BEGIN
+        READ_LONG (uoip_first_matching_item_offset + 0x10) uoip_item_flags
+        PATCH_IF identified BEGIN
+          WRITE_LONG (uoip_first_matching_item_offset + 0x10)
+                     (uoip_item_flags BOR 1)
+        END ELSE BEGIN
+          WRITE_LONG (uoip_first_matching_item_offset + 0x10)
+                     (uoip_item_flags BAND 0xfffffffe)
+        END
+
+        PATCH_IF uoip_matching_items > 1 BEGIN
+          PATCH_WARN "Unofficial Item Pack: %SOURCE_FILE% carries %uoip_matching_items% assigned copies of %item%; only the first copy was updated."
+        END
+      END ELSE BEGIN
+        SET uoip_empty_inventory_slot = 0
+        FOR (uoip_slot_offset = uoip_item_slots_offset + 0x2a;
+             uoip_slot_offset < uoip_item_slots_offset + 0x4a;
+             uoip_slot_offset += 2) BEGIN
+          READ_SSHORT uoip_slot_offset uoip_slot_item_index
+          PATCH_IF uoip_slot_item_index = "-1" BEGIN
+            SET uoip_empty_inventory_slot = 1
+          END
+        END
+
+        PATCH_IF uoip_empty_inventory_slot BEGIN
+          PATCH_IF identified BEGIN
+            ADD_CRE_ITEM "%item%" #0 #0 #0 ~IDENTIFIED~ ~INV~ NOMOVE
+          END ELSE BEGIN
+            ADD_CRE_ITEM "%item%" #0 #0 #0 ~NONE~ ~INV~ NOMOVE
+          END
+        END ELSE BEGIN
+          PATCH_WARN "Unofficial Item Pack: %SOURCE_FILE% has no empty inventory slot; %item% was not added so that another mod's item would not be discarded."
+        END
+      END
+    END ELSE BEGIN
+      PATCH_WARN "Unofficial Item Pack: %SOURCE_FILE% is not a supported CRE V1.0 resource; %item% was not added."
+    END
+  END ELSE BEGIN
+    PATCH_WARN "Unofficial Item Pack: %SOURCE_FILE% is not a supported CRE V1.0 resource; %item% was not added."
+  END
+END
