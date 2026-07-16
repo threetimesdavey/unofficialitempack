@@ -55,6 +55,16 @@ When creating commits or opening a pull request:
   is established, so a separate issue comment is not required solely to add a
   backlink. See
   [Linking a pull request to an issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue).
+- For a pull request developed by an AI agent, copy every label from every
+  formally related GitHub issue to the pull request. When multiple issues are
+  related, apply the union of their labels.
+- Apply the `AI` label to every pull request developed by an AI agent.
+- Assign each pull request opened by an AI agent to the GitHub user
+  authenticated through the current GitHub connection. Determine the active
+  login when opening the pull request instead of hard-coding a username.
+- After opening or updating an AI-developed pull request, verify that all
+  inherited issue labels, the `AI` label, and the authenticated assignee appear
+  on the pull request.
 - Give every pull-request description exactly these five level-two sections in
   this order: `Summary`, `Root Cause`, `Implementation`, `Validation`, and
   `Testing`.

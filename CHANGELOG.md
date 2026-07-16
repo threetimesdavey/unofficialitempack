@@ -56,6 +56,9 @@ chosen by the original author, including `2.7b`.
 - Required Conventional Commits 1.0.0 for pull-request titles and every commit,
   formal reciprocal linking for related GitHub issues and pull requests, and a
   manual human-validation checklist in each pull request.
+- Required AI-developed pull requests to inherit all related issue labels,
+  carry the `AI` label, and be assigned to the GitHub user authenticated through
+  the current GitHub connection.
 
 ## Historical releases
 
