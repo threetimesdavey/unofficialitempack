@@ -52,6 +52,12 @@ chosen by the original author, including `2.7b`.
 - Separated information about the mod from repository governance and
   maintenance policy.
 
+### Fixed
+
+- Removed the unintended Caelar-only restriction from **Circlet of the
+  Cynosure** while preserving other mods' existing item changes and avoiding a
+  duplicate Ribald store entry.
+
 ## Historical releases
 
 ## [2.7b] - 2017-11-08

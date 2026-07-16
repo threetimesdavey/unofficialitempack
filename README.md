@@ -636,8 +636,14 @@ all legally redistributable dependencies required by BG2:EE.
 A historical report identified an apparently unintended `CAELAR` usability
 restriction associated with **Circlet of the Cynosure**.
 
-The restriction should be confirmed against the source game and corrected
-through a targeted patch if it is not intentional.
+The community-maintained installer removes the confirmed `BDCAELAR`
+actor-script-name restriction through a targeted patch. If another mod already
+provides the item, its other changes are preserved; the Ribald store entry is
+also added only when it is not already present.
+
+Mods installed later remain compatible when they patch the existing item or
+store cooperatively. A later mod that replaces the complete item or store can
+still overwrite changes made by every earlier mod.
 
 ### Complete resource overwrites
 
