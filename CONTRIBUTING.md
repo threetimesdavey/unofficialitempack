@@ -407,28 +407,91 @@ Examples:
 - `translation/italian`;
 - `docs/item-gallery`.
 
-Commit messages should be clear and specific.
+### Commit messages and pull-request titles
 
-Prefer:
+Every commit message included in a pull request and the pull-request title must
+follow the
+[Conventional Commits 1.0.0 specification](https://www.conventionalcommits.org/en/v1.0.0/):
 
-- `Fix missing EFF dependency for imported SoD item`
-- `Patch MAGE18Z instead of replacing the creature`
-- `Add Italian strings for Reworked Free Action`
-- `Document EET component conflict`
+```text
+<type>[optional scope][!]: <description>
+```
 
-Avoid:
+Use `feat` for new features and `fix` for bug fixes. Other clear types such as
+`docs`, `test`, `refactor`, `build`, `ci`, and `chore` may be used when they
+describe the change accurately.
+
+Examples:
+
+- `fix(items): remove unintended circlet restriction`
+- `feat(translation): add Italian strings for free action`
+- `docs(contributing): document pull-request requirements`
+- `refactor(weidu): patch MAGE18Z instead of replacing it`
+
+Avoid vague subjects and non-conforming forms such as:
 
 - `Update files`
 - `Fix stuff`
 - `Changes`
 - `Final version`
 
+Before opening a pull request, inspect every commit it contains. Do not open the
+pull request while any commit message is non-conforming. Do not rewrite another
+contributor's shared history without their active approval.
+
+### Link related issues
+
+If the work began from or is strongly related to a GitHub issue, formally link
+the pull request to that issue.
+
+- When the pull request targets the default branch and resolves the issue, put
+  a supported closing keyword in the pull-request description, for example
+  `Closes #123`.
+- Put the keyword in the pull-request description rather than relying on a
+  commit message. A keyword in a commit message may close the issue without
+  listing the pull request as linked.
+- When the pull request must not close the issue or does not target the default
+  branch, use GitHub's **Development** sidebar to create the relationship and
+  add `Related to #123` to the description for context.
+- Verify that the relationship appears on both the pull request and the issue.
+  GitHub creates the reciprocal link automatically, so a separate issue comment
+  is not required solely to add a backlink.
+
+See GitHub's documentation on
+[linking a pull request to an issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue).
+
+### Pull-request description
+
+Every pull-request description must use exactly these five level-two sections,
+in this order:
+
+1. `Summary`: summarize the outcome and include the related issue reference
+   when applicable.
+2. `Root Cause`: explain the underlying defect, gap, or need that prompted the
+   change.
+3. `Implementation`: describe the changes made and important design decisions.
+4. `Validation`: report automated, static, repository-only, or contributor
+   checks already performed, their results, and anything that could not be run.
+5. `Testing`: provide a GitHub task list of concrete manual steps for a human
+   to perform to verify the implemented solution.
+
+`Testing` must be the final section. Leave its tasks unchecked until a human
+confirms that each specific step was completed. Automated or agent-performed
+checks belong under `Validation`; an AI agent must not mark a manual test as
+completed on a human's behalf.
+
 ## Pull-request checklist
 
 Before requesting review, confirm that:
 
 - [ ] The pull request addresses one clearly defined problem or proposal.
-- [ ] A related issue is linked when the change is substantial.
+- [ ] Every commit message follows Conventional Commits 1.0.0.
+- [ ] The pull-request title follows Conventional Commits 1.0.0.
+- [ ] A related issue is formally linked when the work began from or is
+      strongly related to it.
+- [ ] The description uses `Summary`, `Root Cause`, `Implementation`,
+      `Validation`, and final `Testing` sections in that order.
+- [ ] The `Testing` section contains concrete manual human-validation tasks.
 - [ ] Existing authorship and credits are preserved.
 - [ ] I have the right to contribute every included file.
 - [ ] Existing game resources are patched rather than replaced where possible.
@@ -445,7 +508,8 @@ Before requesting review, confirm that:
       changed.
 - [ ] `CHANGELOG.md` was updated under `[Unreleased]`.
 - [ ] `CONTRIBUTORS.md` was updated when a new contributor should be credited.
-- [ ] The pull request explains what was tested.
+- [ ] The `Validation` section explains which checks were run and their
+      results.
 - [ ] The pull request identifies anything that remains untested.
 
 ## Documentation standards

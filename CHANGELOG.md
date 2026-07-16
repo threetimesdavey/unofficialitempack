@@ -45,12 +45,17 @@ chosen by the original author, including `2.7b`.
 - Added this reconstructed historical changelog by the name of `CHANGELOG.md`.
 - Added repository guidance and cross-platform environment-variable setup for
   AI-assisted development with local BG:EE and BG2:EE installations.
+- Added a pull-request template with required `Summary`, `Root Cause`,
+  `Implementation`, `Validation`, and `Testing` sections.
 
 ### Changed
 
 - Adopted version `2.7b` as the historical baseline for future maintenance.
 - Separated information about the mod from repository governance and
   maintenance policy.
+- Required Conventional Commits 1.0.0 for pull-request titles and every commit,
+  formal reciprocal linking for related GitHub issues and pull requests, and a
+  manual human-validation checklist in each pull request.
 
 ## Historical releases
 
