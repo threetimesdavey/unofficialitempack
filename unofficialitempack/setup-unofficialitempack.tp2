@@ -229,7 +229,13 @@ COPY_EXISTING ~HLDEMI.CRE~ ~override~
 ADD_CRE_ITEM ~GAXROB~ #0 #0 #0 ~IDENTIFIED~ ~INV~
 
 BEGIN @39
-COPY ~unofficialitempack/SoD_items~ ~override~
+// Copy shared assets in bulk, but leave ITMs to item-specific handling below.
+COPY GLOB ~unofficialitempack/SoD_items/*.BAM~ ~override~
+COPY GLOB ~unofficialitempack/SoD_items/*.BMP~ ~override~
+COPY GLOB ~unofficialitempack/SoD_items/*.bmp~ ~override~
+COPY GLOB ~unofficialitempack/SoD_items/*.EFF~ ~override~
+COPY GLOB ~unofficialitempack/SoD_items/*.PVRZ~ ~override~
+COPY GLOB ~unofficialitempack/SoD_items/*.STO~ ~override~
 
 COPY ~unofficialitempack/SoD_items/bdblun07.ITM~ ~override/bdblun07.ITM~
 SAY DESC @40
@@ -266,10 +272,38 @@ SAY DESC @58
 SAY NAME1 @59
 SAY NAME2 @60
 
-COPY ~unofficialitempack/SoD_items/bdhelmca.ITM~ ~override/bdhelmca.ITM~
-SAY DESC @61
-SAY NAME1 @62
-SAY NAME2 @63
+// Preserve earlier mods' changes when the Circlet has already been imported.
+ACTION_IF FILE_EXISTS_IN_GAME ~bdhelmca.itm~ BEGIN
+  COPY_EXISTING ~bdhelmca.itm~ ~override~
+    LPF DELETE_EFFECT
+      INT_VAR
+        check_globals    = 1
+        check_headers    = 1
+        multi_match      = 999
+        match_opcode     = 319
+        match_parameter1 = 0
+        match_parameter2 = 11
+      STR_VAR
+        match_resource = ~BDCAELAR~
+    END
+  BUT_ONLY_IF_IT_CHANGES
+END ELSE BEGIN
+  COPY ~unofficialitempack/SoD_items/bdhelmca.ITM~ ~override/bdhelmca.ITM~
+    SAY DESC @61
+    SAY NAME1 @62
+    SAY NAME2 @63
+    LPF DELETE_EFFECT
+      INT_VAR
+        check_globals    = 1
+        check_headers    = 1
+        multi_match      = 999
+        match_opcode     = 319
+        match_parameter1 = 0
+        match_parameter2 = 11
+      STR_VAR
+        match_resource = ~BDCAELAR~
+    END
+END
 
 COPY ~unofficialitempack/SoD_items/bdplat03.ITM~ ~override/bdplat03.ITM~
 SAY DESC @64
@@ -449,7 +483,15 @@ ADD_STORE_ITEM ~bdbow03~ #0 #0 #0 ~IDENTIFIED~ #1
 ADD_STORE_ITEM ~bdshld03~ #0 #0 #0 ~IDENTIFIED~ #1
 ADD_STORE_ITEM ~bdrobe01~ #0 #0 #0 ~IDENTIFIED~ #1
 ADD_STORE_ITEM ~bdplat03~ #0 #0 #0 ~IDENTIFIED~ #1
-ADD_STORE_ITEM ~bdhelmca~ #0 #0 #0 ~IDENTIFIED~ #1
+// Do not duplicate the Circlet when another mod has already added it.
+LPF ADD_STORE_ITEM_EX
+  INT_VAR
+    stack = 1
+  STR_VAR
+    item_name = ~bdhelmca~
+    position  = ~FIRST~
+    flags     = ~identified~
+END
 ADD_STORE_ITEM ~bdhelm12~ #0 #0 #0 ~IDENTIFIED~ #1
 ADD_STORE_ITEM ~bdhelm01~ #0 #0 #0 ~IDENTIFIED~ #1
 ADD_STORE_ITEM ~bdclck05~ #0 #0 #0 ~IDENTIFIED~ #1
