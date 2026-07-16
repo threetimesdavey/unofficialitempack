@@ -1,6 +1,10 @@
 BACKUP ~unofficialitempack/backup~
 AUTHOR ~Edvin~
 
+ALWAYS
+  INCLUDE ~unofficialitempack/lib/item_placement.tpa~
+END
+
 LANGUAGE ~Cesky~
          ~cs_CZ~
          ~unofficialitempack/tra/cs_CZ/setup-unofficialitempack.tra~
@@ -15,32 +19,59 @@ LANGUAGE ~Italian~
 
 BEGIN @0
 
-COPY ~unofficialitempack/Items~ ~override~
-
 COPY ~unofficialitempack/SoD_items/bdkeyr.STO~ ~override/bdkeyr.STO~
 
-COPY ~unofficialitempack/SoD_items/bdkeyr.ITM~ ~override/bdkeyr.ITM~
-SAY DESC @92
-SAY NAME1 @93
-SAY NAME2 @94
+ACTION_IF FILE_EXISTS_IN_GAME ~bdkeyr.ITM~ BEGIN
+  COPY_EXISTING ~bdkeyr.ITM~ ~override~
+    SAY DESC @92
+    SAY UNIDENTIFIED_DESC @92
+    SAY NAME1 @93
+    SAY NAME2 @94
+  BUT_ONLY_IF_IT_CHANGES
+END ELSE BEGIN
+  COPY ~unofficialitempack/SoD_items/bdkeyr.ITM~ ~override/bdkeyr.ITM~
+    SAY DESC @92
+    SAY UNIDENTIFIED_DESC @92
+    SAY NAME1 @93
+    SAY NAME2 @94
+END
 
 COPY_EXISTING ~FIRKRA02.CRE~ ~override~
-ADD_CRE_ITEM ~CLCK05~ #0 #0 #0 ~IDENTIFIED~ ~INV~
+  LPF uoip_place_cre_item
+    STR_VAR item = ~CLCK05~
+  END
+BUT_ONLY_IF_IT_CHANGES
 
 COPY_EXISTING ~SALVANAS.CRE~ ~override~
-ADD_CRE_ITEM ~BELT05~ #0 #0 #0 ~IDENTIFIED~ ~INV~
+  LPF uoip_place_cre_item
+    STR_VAR item = ~BELT05~
+  END
+BUT_ONLY_IF_IT_CHANGES
 
 COPY_EXISTING ~DUECLA01.CRE~ ~override~
-ADD_CRE_ITEM ~bdkeyr~ #0 #0 #0 ~IDENTIFIED~ ~INV~
+  LPF uoip_place_cre_item
+    INT_VAR identified = 1
+    STR_VAR item = ~bdkeyr~
+  END
+BUT_ONLY_IF_IT_CHANGES
 
 COPY_EXISTING ~GMAYOR.CRE~ ~override~
-ADD_CRE_ITEM ~HELM02~ #0 #0 #0 ~IDENTIFIED~ ~INV~
+  LPF uoip_place_cre_item
+    STR_VAR item = ~HELM02~
+  END
+BUT_ONLY_IF_IT_CHANGES
 
 COPY_EXISTING ~GRON.CRE~ ~override~
-ADD_CRE_ITEM ~HELM02~ #0 #0 #0 ~IDENTIFIED~ ~INV~
+  LPF uoip_place_cre_item
+    STR_VAR item = ~HELM02~
+  END
+BUT_ONLY_IF_IT_CHANGES
 
 COPY_EXISTING ~THESHAL.CRE~ ~override~
-ADD_CRE_ITEM ~HELM02~ #0 #0 #0 ~IDENTIFIED~ ~INV~
+  LPF uoip_place_cre_item
+    STR_VAR item = ~HELM02~
+  END
+BUT_ONLY_IF_IT_CHANGES
 
 COPY ~unofficialitempack/Items/misc6p.itm~ ~override/misc6p.itm~
 SAY DESC @1
@@ -102,19 +133,34 @@ COPY ~unofficialitempack/Items/BELT09.ITM~ ~override/BELT09.ITM~
 SAY DESC @34
 
 COPY_EXISTING ~C6DRIZZ.CRE~ ~override~
-ADD_CRE_ITEM ~BRAC16~ #0 #0 #0 ~IDENTIFIED~ ~INV~
+  LPF uoip_place_cre_item
+    STR_VAR item = ~BRAC16~
+  END
+BUT_ONLY_IF_IT_CHANGES
 
 COPY_EXISTING ~C6DRIZZ2.CRE~ ~override~
-ADD_CRE_ITEM ~BRAC16~ #0 #0 #0 ~IDENTIFIED~ ~INV~
+  LPF uoip_place_cre_item
+    STR_VAR item = ~BRAC16~
+  END
+BUT_ONLY_IF_IT_CHANGES
 
 COPY_EXISTING ~C6DRIZZ3.CRE~ ~override~
-ADD_CRE_ITEM ~BRAC16~ #0 #0 #0 ~IDENTIFIED~ ~INV~
+  LPF uoip_place_cre_item
+    STR_VAR item = ~BRAC16~
+  END
+BUT_ONLY_IF_IT_CHANGES
 
 COPY_EXISTING ~DRIZZT.CRE~ ~override~
-ADD_CRE_ITEM ~BRAC16~ #0 #0 #0 ~IDENTIFIED~ ~INV~
+  LPF uoip_place_cre_item
+    STR_VAR item = ~BRAC16~
+  END
+BUT_ONLY_IF_IT_CHANGES
 
 COPY_EXISTING ~SAHIMP07.CRE~ ~override~
-ADD_CRE_ITEM ~BRAC16~ #0 #0 #0 ~IDENTIFIED~ ~INV~
+  LPF uoip_place_cre_item
+    STR_VAR item = ~BRAC16~
+  END
+BUT_ONLY_IF_IT_CHANGES
 
 BEGIN @18
 COPY ~unofficialitempack/katana~ ~override~
@@ -160,9 +206,10 @@ COPY ~unofficialitempack/symbols/beltty.ITM~ ~override/beltty.ITM~
 SAY DESC @32
 
 BEGIN @35
-COPY ~unofficialitempack/new_items~ ~override~
 
 COPY ~unofficialitempack/new_items/CLEAVERX.BMP~ ~override/CLEAVERX.BMP~
+
+COPY ~unofficialitempack/new_items/CLEAVERX.BAM~ ~override/CLEAVERX.BAM~
 
 COPY ~unofficialitempack/new_items/CLEAVER.BAM~ ~override/CLEAVER.BAM~
 
@@ -179,57 +226,88 @@ COPY ~unofficialitempack/new_items/HODIN1.BAM~ ~override/HODIN1.BAM~
 COPY ~unofficialitempack/new_items/HODIN2.BAM~ ~override/HODIN2.BAM~
 
 COPY ~unofficialitempack/new_items/HODIN.ITM~ ~override/HODIN.ITM~
-SAY DESC @106
-SAY NAME1 @104
-SAY NAME2 @105
+  SAY DESC @106
+  SAY UNIDENTIFIED_DESC @118
+  SAY NAME1 @117
+  SAY NAME2 @105
+  WRITE_SHORT 0x42 100
 
 COPY_EXISTING ~MAGE18Z.CRE~ ~override~
-ADD_CRE_ITEM ~HODIN~ #0 #0 #0 ~IDENTIFIED~ ~INV~
+  LPF uoip_place_cre_item
+    STR_VAR item = ~HODIN~
+  END
+BUT_ONLY_IF_IT_CHANGES
 
 COPY ~unofficialitempack/Items/MDOG1.BAM~ ~override/MDOG1.BAM~
 COPY ~unofficialitempack/Items/MDOG2.BAM~ ~override/MDOG2.BAM~
 
 COPY ~unofficialitempack/Items/MDOG.ITM~ ~override/MDOG.ITM~
-SAY DESC @101
-SAY NAME1 @102
-SAY NAME2 @103
+  SAY DESC @101
+  SAY UNIDENTIFIED_DESC @120
+  SAY NAME1 @119
+  SAY NAME2 @103
+  WRITE_SHORT 0x42 75
 
 COPY_EXISTING ~C6DRIZZ.CRE~ ~override~
-ADD_CRE_ITEM ~MDOG~ #0 #0 #0 ~IDENTIFIED~ ~INV~
+  LPF uoip_place_cre_item
+    STR_VAR item = ~MDOG~
+  END
+BUT_ONLY_IF_IT_CHANGES
 
 COPY_EXISTING ~C6DRIZZ2.CRE~ ~override~
-ADD_CRE_ITEM ~MDOG~ #0 #0 #0 ~IDENTIFIED~ ~INV~
+  LPF uoip_place_cre_item
+    STR_VAR item = ~MDOG~
+  END
+BUT_ONLY_IF_IT_CHANGES
 
 COPY_EXISTING ~C6DRIZZ3.CRE~ ~override~
-ADD_CRE_ITEM ~MDOG~ #0 #0 #0 ~IDENTIFIED~ ~INV~
+  LPF uoip_place_cre_item
+    STR_VAR item = ~MDOG~
+  END
+BUT_ONLY_IF_IT_CHANGES
 
 COPY_EXISTING ~DRIZZT.CRE~ ~override~
-ADD_CRE_ITEM ~MDOG~ #0 #0 #0 ~IDENTIFIED~ ~INV~
+  LPF uoip_place_cre_item
+    STR_VAR item = ~MDOG~
+  END
+BUT_ONLY_IF_IT_CHANGES
 
 COPY_EXISTING ~SAHIMP07.CRE~ ~override~
-ADD_CRE_ITEM ~MDOG~ #0 #0 #0 ~IDENTIFIED~ ~INV~
+  LPF uoip_place_cre_item
+    STR_VAR item = ~MDOG~
+  END
+BUT_ONLY_IF_IT_CHANGES
 
 COPY ~unofficialitempack/new_items/ARCLU.BAM~ ~override/ARCLU.BAM~
 
 COPY ~unofficialitempack/new_items/ARCLU.ITM~ ~override/ARCLU.ITM~
-SAY DESC @112
-SAY NAME1 @110
-SAY NAME2 @111
+  SAY DESC @112
+  SAY UNIDENTIFIED_DESC @122
+  SAY NAME1 @121
+  SAY NAME2 @111
+  WRITE_SHORT 0x42 70
 
 COPY_EXISTING ~DCLERIC.CRE~ ~override~
-ADD_CRE_ITEM ~ARCLU~ #0 #0 #0 ~IDENTIFIED~ ~INV~
+  LPF uoip_place_cre_item
+    STR_VAR item = ~ARCLU~
+  END
+BUT_ONLY_IF_IT_CHANGES
 
 COPY ~unofficialitempack/new_items/GAXROB.BAM~ ~override/GAXROB.BAM~
 COPY ~unofficialitempack/new_items/GAXROB.ITM~ ~override/GAXROB.ITM~
-SAY DESC @116
-SAY NAME1 @114
-SAY NAME2 @115
+  SAY DESC @116
+  SAY UNIDENTIFIED_DESC @124
+  SAY NAME1 @123
+  SAY NAME2 @115
+  WRITE_SHORT 0x42 65
 
 COPY_EXISTING ~HLDEMI.CRE~ ~override~
-ADD_CRE_ITEM ~GAXROB~ #0 #0 #0 ~IDENTIFIED~ ~INV~
+  LPF uoip_place_cre_item
+    STR_VAR item = ~GAXROB~
+  END
+BUT_ONLY_IF_IT_CHANGES
 
 BEGIN @39
-COPY ~unofficialitempack/SoD_items~ ~override~
 
 COPY ~unofficialitempack/SoD_items/bdblun07.ITM~ ~override/bdblun07.ITM~
 SAY DESC @40
@@ -308,6 +386,7 @@ COPY ~unofficialitempack/SoD_items/CBLUN01.BMP~ ~override/CBLUN01.BMP~
 COPY ~unofficialitempack/SoD_items/CBOW14.BAM~ ~override/CBOW14.BAM~
 COPY ~unofficialitempack/SoD_items/CBOW14.BMP~ ~override/CBOW14.BMP~
 COPY ~unofficialitempack/SoD_items/CBRAC18.BAM~ ~override/CBRAC18.BAM~
+COPY ~unofficialitempack/SoD_items/CBRAC18.BMP~ ~override/CBRAC18.BMP~
 COPY ~unofficialitempack/SoD_items/CCLCK15.BAM~ ~override/CCLCK15.BAM~
 COPY ~unofficialitempack/SoD_items/CCLCK24.BAM~ ~override/CCLCK24.BAM~ 
 COPY ~unofficialitempack/SoD_items/CCLCK24.BMP~ ~override/CCLCK24.BMP~
@@ -417,32 +496,68 @@ SAY NAME2 @91
 
 COPY ~unofficialitempack/SoD_items/bdkeyr.STO~ ~override/bdkeyr.STO~
 
-COPY ~unofficialitempack/SoD_items/bdkeyr.ITM~ ~override/bdkeyr.ITM~
-SAY DESC @92
-SAY NAME1 @93
-SAY NAME2 @94
+ACTION_IF FILE_EXISTS_IN_GAME ~bdkeyr.ITM~ BEGIN
+  COPY_EXISTING ~bdkeyr.ITM~ ~override~
+    SAY DESC @92
+    SAY UNIDENTIFIED_DESC @92
+    SAY NAME1 @93
+    SAY NAME2 @94
+  BUT_ONLY_IF_IT_CHANGES
+END ELSE BEGIN
+  COPY ~unofficialitempack/SoD_items/bdkeyr.ITM~ ~override/bdkeyr.ITM~
+    SAY DESC @92
+    SAY UNIDENTIFIED_DESC @92
+    SAY NAME1 @93
+    SAY NAME2 @94
+END
 
 COPY ~unofficialitempack/SoD_items/bdplat01.ITM~ ~override/bdplat01.ITM~
 SAY DESC @95
 SAY NAME1 @96
 SAY NAME2 @97
 
-COPY ~unofficialitempack/SoD_items/bdsw1h02.ITM~ ~override/bdsw1h02.ITM~
-SAY DESC @98
-SAY NAME1 @99
-SAY NAME2 @100
+ACTION_IF FILE_EXISTS_IN_GAME ~bdsw1h02.ITM~ BEGIN
+  COPY_EXISTING ~bdsw1h02.ITM~ ~override~
+    SAY DESC @98
+    SAY UNIDENTIFIED_DESC @126
+    SAY NAME1 @125
+    SAY NAME2 @100
+    WRITE_SHORT 0x42 80
+  BUT_ONLY_IF_IT_CHANGES
+END ELSE BEGIN
+  COPY ~unofficialitempack/SoD_items/bdsw1h02.ITM~ ~override/bdsw1h02.ITM~
+    SAY DESC @98
+    SAY UNIDENTIFIED_DESC @126
+    SAY NAME1 @125
+    SAY NAME2 @100
+    WRITE_SHORT 0x42 80
+END
 
 COPY_EXISTING ~SHADRA01.CRE~ ~override~
-ADD_CRE_ITEM ~bdsw1h02~ #0 #0 #0 ~IDENTIFIED~ ~INV~
+  LPF uoip_place_cre_item
+    STR_VAR item = ~bdsw1h02~
+  END
+BUT_ONLY_IF_IT_CHANGES
 
 COPY_EXISTING ~DRAGSHAD.CRE~ ~override~
-ADD_CRE_ITEM ~bdsw1h02~ #0 #0 #0 ~IDENTIFIED~ ~INV~
+  LPF uoip_place_cre_item
+    STR_VAR item = ~bdsw1h02~
+  END
+BUT_ONLY_IF_IT_CHANGES
 
 COPY_EXISTING ~DRAGSILV.CRE~ ~override~
-ADD_CRE_ITEM ~ohdscale~ #0 #0 #0 ~IDENTIFIED~ ~INV~
+  LPF uoip_place_cre_item
+    INT_VAR identified = 1
+    STR_VAR item = ~ohdscale~
+  END
+BUT_ONLY_IF_IT_CHANGES
 
 COPY_EXISTING ~UDSILVER.CRE~ ~override~
-ADD_CRE_ITEM ~ohdscale~ #0 #0 #0 ~IDENTIFIED~ ~INV~
+  LPF uoip_place_cre_item
+    INT_VAR identified = 1
+    STR_VAR item = ~ohdscale~
+  END
+BUT_ONLY_IF_IT_CHANGES
 
 COPY_EXISTING ~ribald.sto~ ~override/ribald.sto~
 ADD_STORE_ITEM ~bdbow03~ #0 #0 #0 ~IDENTIFIED~ #1

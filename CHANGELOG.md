@@ -53,12 +53,28 @@ chosen by the original author, including `2.7b`.
 - Adopted version `2.7b` as the historical baseline for future maintenance.
 - Separated information about the mod from repository governance and
   maintenance policy.
+- Replaced redundant directory-wide resource copies with explicit component
+  copies, and preserved existing Key Ring and Tongue of Acid item resources when
+  another mod imported them first.
 - Required Conventional Commits 1.0.0 for pull-request titles and every commit,
   formal reciprocal linking for related GitHub issues and pull requests, and a
   manual human-validation checklist in each pull request.
 - Required AI-developed pull requests to inherit all related issue labels,
   carry the `AI` label, and be assigned to the GitHub user authenticated through
   the current GitHub connection.
+
+### Fixed
+
+- Added magical creature drops as unidentified items while keeping the Key Ring
+  and Silver Dragon Scales identified
+  ([#9](https://github.com/threetimesdavey/unofficialitempack/issues/9)).
+- Made creature item placement idempotent and prevented a full inventory from
+  causing another mod's item to be discarded.
+- Added valid unidentified names, descriptions, and lore requirements for the
+  Hourglass of Gond, Guenhwyvar's Figurine, Ring of Superior Arcane Clumsiness,
+  Kangaxx's Robe, and Tongue of Acid.
+- Repaired the Key Ring's unidentified description and corrected the displayed
+  weight of the Ring of Superior Arcane Clumsiness.
 
 ## Historical releases
 

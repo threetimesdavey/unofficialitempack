@@ -790,7 +790,7 @@ Equipped abilities:
 – Casting failure: 30%
 – Armor Class: +1
 
-Weight: 0~
+Weight: 1~
 
 @113    = ~Reworked free action~
 
@@ -806,3 +806,18 @@ Equipped abilities:
 – Immunity to magical forms of imprisonment
 
 Weight: 6~
+
+@117    = ~Hourglass~
+@118    = ~This small hourglass is made from exquisitely worked metal and filled with fine, pale sand. Its craftsmanship suggests that it may be more than an ordinary timepiece.~
+
+@119    = ~Figurine~
+@120    = ~This finely carved animal figurine depicts a large black panther. Its polished stone surface is cool to the touch.~
+
+@121    = ~Ring~
+@122    = ~This metal ring is plain except for a faintly shimmering band around its edge. Its purpose is not apparent.~
+
+@123    = ~Robe~
+@124    = ~This heavy mage robe is woven from dark, age-worn fabric. Traces of powerful magic cling to its folds.~
+
+@125    = ~Long Sword~
+@126    = ~The blade of this well-crafted long sword bears faint discoloration along its edge. Its unusual balance suggests that it is no ordinary weapon.~

@@ -603,6 +603,13 @@ installation order.
 | **Existing saved games** | Limited reliability | Components that modify stores, creatures, drops, or encounters may require a new game. |
 | **Other item and store mods** | Test carefully | Conflicts are possible when another mod changes the same item, store, creature, or script. |
 
+Creature drops added by this mod are patched cooperatively: an existing
+matching item is reused, and a new copy is added only when the creature has a
+free general-inventory slot. This prevents duplicate drops and avoids evicting
+items added by an earlier mod. A later mod that completely replaces the
+creature resource can still remove the placement, so complete resource
+replacements remain inherently installation-order dependent.
+
 ### Compatibility principles for future releases
 
 Community maintenance should:
